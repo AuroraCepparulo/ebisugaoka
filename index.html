@@ -2,173 +2,57 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>SISTEMA ARCHIVIO EBISUGAOKA</title>
-
-<style>
-body {
-    margin: 0;
-    background: #cfc7b8;
-    font-family: "Times New Roman", serif;
-    color: #1a1a1a;
-    overflow: hidden;
-}
-
-.noise {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
-    opacity: 0.25;
-    pointer-events: none;
-}
-
-.screen {
-    width: 820px;
-    height: 560px;
-    margin: 50px auto;
-    background: rgba(255,255,255,0.6);
-    border: 1px solid rgba(0,0,0,0.3);
-    box-shadow: 0 0 50px rgba(0,0,0,0.25);
-    padding: 30px;
-    position: relative;
-    animation: drift 6s infinite ease-in-out;
-}
-
-.header {
-    font-size: 12px;
-    opacity: 0.75;
-    letter-spacing: 1px;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
-    padding-bottom: 10px;
-}
-
-.panel {
-    margin-top: 25px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.card {
-    border: 1px solid rgba(0,0,0,0.25);
-    padding: 15px;
-    font-size: 13px;
-    background: rgba(255,255,255,0.45);
-}
-
-.warning {
-    color: rgba(120,0,0,0.85);
-}
-
-.log {
-    margin-top: 25px;
-    font-size: 13px;
-    line-height: 1.5;
-    opacity: 0.85;
-    height: 180px;
-    overflow: hidden;
-}
-
-.cursor {
-    display: inline-block;
-    width: 8px;
-    background: #000;
-    animation: blink 1s infinite;
-}
-
-@keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-}
-
-@keyframes drift {
-    0% { transform: translate(0px,0px); }
-    50% { transform: translate(0.3px,-0.3px); }
-    100% { transform: translate(0px,0px); }
-}
-
-.keybox {
-    margin-top: 25px;
-    text-align: center;
-    font-size: 20px;
-    letter-spacing: 4px;
-    opacity: 0;
-    transition: 3s ease;
-}
-
-.show {
-    opacity: 1 !important;
-}
-</style>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archivio Recuperato</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="noise"></div>
+<div class="fog"></div>
 
-<div class="screen">
+<div class="container">
 
-    <div class="header">
-        SISTEMA ARCHIVIO MUNICIPALE EBISUGAOKA // NODO 04-B // ACCESSO: RISERVATO
+    <div class="stamp">昭和三十九</div>
+
+    <h1>ARCHIVIO NON CATALOGATO</h1>
+
+    <p class="subtitle">Accesso tramite verifica manuale</p>
+
+    <!-- LOGIN -->
+    <div id="loginBox" class="panel">
+
+        <input id="passwordInput" type="password" placeholder="Codice di accesso">
+
+        <button id="enterBtn">ACCEDI</button>
+
+        <div class="hint">La nebbia non risponde a tentativi casuali</div>
+        <div class="hint">Suggerimento: è il nome di un nobile destriero che ha accompagnato l'Essere Perfetto nelle sue avventure</div>
+
     </div>
 
-    <div class="panel">
+    <!-- CONTENUTO -->
+    <div id="contentBox" class="hidden panel">
 
-        <div class="card">
-            <b>ARCHIVIO:</b> EBS-196X-Δ19<br>
-            <b>TIPO:</b> Registro anomalie presenze scolastiche<br>
-            <b>STATO:</b> PARZIALMENTE CORROTTO
+        <div class="warning">ACCESSO AUTORIZZATO</div>
+
+        <div class="key-box">
+
+            <div class="label">CODICE RECUPERATO</div>
+
+            <div class="key">XXXX-XXXX-XXXX-XXXX</div>
+
         </div>
 
-        <div class="card warning">
-            ATTENZIONE:<br>
-            Interferenza ambientale rilevata<br>
-            Soglia di nebbia superata
+        <div class="footer">
+            Alcuni archivi non dovrebbero essere riaperti.
         </div>
 
-    </div>
-
-    <div class="log" id="log">
-        INIZIALIZZAZIONE ACCESSO ARCHIVIO<span class="cursor"></span>
-    </div>
-
-    <div class="keybox" id="key">
-        XXXXX-XXXXX-XXXXX
     </div>
 
 </div>
 
-<script>
-const log = document.getElementById("log");
-
-const righe = [
-"CONNESSIONE AL NODO LOCALE IN CORSO...",
-"VERIFICA STRUTTURA REGISTRI SCOLASTICI...",
-"RILEVATA PERDITA DATI: 23%",
-"RICOSTRUZIONE VOCI MANCANTI...",
-"ERRORE: PRESENZA NON IDENTIFICATA NEL REGISTRO",
-"NOTA: SEGNALAZIONI DI FLORA ROSSA OLTRE IL PERIMETRO",
-"AVVISO: OSSERVAZIONE MATTUTINA VIETATA",
-"FINALIZZAZIONE SEQUENZA DI DECRITTAZIONE..."
-];
-
-let i = 0;
-
-function scrivi() {
-    if (i < righe.length) {
-        log.innerHTML = righe.slice(0, i+1).join("<br>") + '<span class="cursor"></span>';
-        i++;
-        setTimeout(scrivi, 1200);
-    } else {
-        setTimeout(() => {
-            document.getElementById("key").classList.add("show");
-        }, 1200);
-    }
-}
-
-setTimeout(scrivi, 1200);
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
