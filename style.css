@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html, body{
+    height:100%;
+}
+
+body{
+
+    font-family:'Cormorant Garamond', serif;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(circle at top, rgba(90,90,90,0.25), transparent 60%),
+    radial-gradient(circle at bottom, rgba(0,0,0,0.6), transparent 55%),
+    linear-gradient(to bottom, #1a1a1a, #0b0b0b);
+
+    color:#2a201a;
+
+    overflow:auto;
+}
+
+/* NEBBIA */
+.fog{
+    position:fixed;
+    inset:0;
+
+    background:
+    radial-gradient(circle at 30% 40%, rgba(255,255,255,0.04), transparent 30%),
+    radial-gradient(circle at 70% 60%, rgba(255,255,255,0.03), transparent 35%);
+
+    filter:blur(10px);
+
+    pointer-events:none;
+
+    animation:fogMove 14s ease-in-out infinite alternate;
+}
+
+@keyframes fogMove{
+    from{transform:translateX(-12px);}
+    to{transform:translateX(12px);}
+}
+
+/* CONTENITORE */
+.container{
+
+    width:92%;
+    max-width:520px;
+
+    padding:28px;
+
+    text-align:center;
+
+    background:
+    linear-gradient(135deg, #d6c7b0, #c8b79f);
+
+    border:1px solid rgba(60,40,20,0.3);
+
+    box-shadow:
+    0 0 70px rgba(0,0,0,0.8),
+    inset 0 0 40px rgba(0,0,0,0.12);
+
+    position:relative;
+}
+
+/* TIMBRO */
+.stamp{
+    position:absolute;
+    top:10px;
+    left:10px;
+
+    font-size:12px;
+
+    color:#7a1d1d;
+
+    border:1px solid rgba(122,29,29,0.4);
+
+    padding:4px 6px;
+
+    transform:rotate(-5deg);
+
+    opacity:0.7;
+}
+
+/* TESTI */
+h1{
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    font-size:14px;
+    opacity:0.7;
+    margin-bottom:20px;
+}
+
+.hint{
+    font-size:11px;
+    opacity:0.6;
+    margin-top:10px;
+}
+
+/* PANEL */
+.panel{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:10px;
+}
+
+/* INPUT */
+input{
+    padding:10px;
+
+    border:1px solid rgba(0,0,0,0.3);
+
+    background:rgba(255,255,255,0.4);
+
+    font-family:inherit;
+}
+
+/* BUTTON */
+button{
+    padding:10px;
+
+    cursor:pointer;
+
+    background:#2a201a;
+
+    color:#e7ddcf;
+
+    border:none;
+}
+
+/* VISIBILITÀ */
+.hidden{
+    display:none;
+}
+
+/* WARN */
+.warning{
+    font-size:12px;
+    letter-spacing:2px;
+    opacity:0.6;
+    margin-bottom:15px;
+}
+
+/* KEY BOX */
+.key-box{
+    padding:18px;
+
+    border:1px solid rgba(40,30,20,0.35);
+
+    background:rgba(255,255,255,0.1);
+}
+
+.label{
+    font-size:11px;
+    opacity:0.6;
+    margin-bottom:10px;
+}
+
+.key{
+    font-size:20px;
+    letter-spacing:3px;
+}
+
+/* FOOTER */
+.footer{
+    margin-top:18px;
+    font-size:12px;
+    opacity:0.6;
+}
